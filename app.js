@@ -15,15 +15,19 @@ function calculateStockPrice() {
     showMsg();
     hideError();
     if (currentPriceValue > initialPriceValue) {
-      const profit = (currentPriceValue - initialPriceValue) * noOfStocks;
+      const profit = currentPriceValue - initialPriceValue;
       const profitPercentage = Math.round((profit / initialPriceValue) * 100);
-      output.innerHTML = `Yo! Your profit is ${profit} & profit percentage is ${profitPercentage}% 🚀`;
+      output.innerHTML = `Yay! Your profit is ₹${
+        profit * noOfStocks
+      } & profit percentage is ${profitPercentage}% 🚀`;
     } else if (currentPriceValue < initialPriceValue) {
-      const loss = (initialPriceValue - currentPriceValue) * noOfStocks;
+      const loss = initialPriceValue - currentPriceValue;
       const lossPercentage = Math.round((loss / initialPriceValue) * 100);
-      output.innerHTML = `Dude, your loss is ${loss} & loss percentage is ${lossPercentage}% 😥`;
+      output.innerHTML = `Dude, your loss is ₹${
+        loss * noOfStocks
+      } & loss percentage is ${lossPercentage}% 😥`;
     } else {
-      output.innerHTML = "No profit, no loss. That's weird yo 😐";
+      output.innerHTML = "No profit, no loss. That's weird 😐";
     }
   } else {
     output.style.display = "none";
