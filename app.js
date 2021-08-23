@@ -16,13 +16,13 @@ function calculateStockPrice() {
     hideError();
     if (currentPriceValue > initialPriceValue) {
       const profit = currentPriceValue - initialPriceValue;
-      const profitPercentage = Math.round((profit / initialPriceValue) * 100);
+      const profitPercentage = ((profit / initialPriceValue) * 100).toFixed(2);
       output.innerHTML = `Yay! Your profit is ₹${
         profit * noOfStocks
       } & profit percentage is ${profitPercentage}% 🚀`;
     } else if (currentPriceValue < initialPriceValue) {
       const loss = initialPriceValue - currentPriceValue;
-      const lossPercentage = Math.round((loss / initialPriceValue) * 100);
+      const lossPercentage = ((loss / initialPriceValue) * 100).toFixed(2);
       output.innerHTML = `Dude, your loss is ₹${
         loss * noOfStocks
       } & loss percentage is ${lossPercentage}% 😥`;
