@@ -11,7 +11,10 @@ function calculateStockPrice() {
   const currentPriceValue = Number(currentPrice.value);
   const noOfStocks = Number(numberOfStocks.value);
 
-  if (initialPriceValue && currentPriceValue && noOfStocks) {
+  const isValidInput =
+    initialPriceValue > 0 && currentPriceValue > 0 && noOfStocks > 0;
+
+  if (isValidInput) {
     showMsg();
     hideError();
     if (currentPriceValue > initialPriceValue) {
@@ -32,7 +35,7 @@ function calculateStockPrice() {
   } else {
     output.style.display = "none";
     errorMsg.style.display = "block";
-    errorMsg.innerHTML = "Please fill all the fields";
+    errorMsg.innerHTML = "Please enter valid inputs";
   }
 }
 
